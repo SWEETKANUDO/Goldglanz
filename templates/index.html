@@ -1,0 +1,365 @@
+{% extends '/includes/boiler.html' %} {% block title %}GoldGlanz - Premium
+Jewelry Collection{% endblock %} {% block content %}
+<style>
+  .carousel-item {
+    transition: opacity 1s ease-in-out;
+  }
+</style>
+<!-- Hero Section -->
+<section class="hero-section position-relative overflow-hidden">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Hero Text -->
+      <div class="col-lg-6 z-1 position-relative">
+        <h1 class="display-4 font-playfair fw-bold mb-4 text-white">
+          Elegant Gold & Silver Jewellery
+        </h1>
+        <p class="lead mb-4 text-white">
+          Timeless pieces crafted for your special moments. Discover our
+          collection of handcrafted jewelry that combines traditional artistry
+          with modern design.
+        </p>
+        <div class="d-flex gap-3">
+          <a href="/shop" class="btn btn-light btn-lg">
+            <i class="fas fa-gem me-2"></i>Explore Collection
+          </a>
+          <a href="/estimate" class="btn btn-outline-light btn-lg">
+            Get Estimate
+          </a>
+        </div>
+      </div>
+
+      <!-- Carousel -->
+      <div class="col-lg-6">
+        <div
+          id="heroCarousel"
+          class="carousel slide carousel-fade"
+          data-bs-ride="carousel"
+        >
+
+        <!-- controls for carousel -->
+          <!-- <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#heroCarousel"
+              data-bs-slide-to="0"
+              class="active"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#heroCarousel"
+              data-bs-slide-to="1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#heroCarousel"
+              data-bs-slide-to="2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#heroCarousel"
+              data-bs-slide-to="3"
+            ></button>
+          </div> -->
+          <div class="carousel-inner rounded shadow">
+            <!-- Inside carousel-inner -->
+            <div class="carousel-item active" data-bs-interval="2000">
+              <img
+                src="/static/images/eric-fung-Z0GZrpwcc5Y-unsplash.jpg"
+                class="d-block w-100 carousel-img"
+                alt="Gold Jewelry"
+              />
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img
+                src="/static/images/premium_photo-1678554875441-b286d1b6174a.jpeg"
+                class="d-block w-100 carousel-img"
+                alt="Necklace"
+              />
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img
+                src="/static/images/premium_photo-1681276170683-706111cf496e.jpg"
+                class="d-block w-100 carousel-img"
+                alt="Rings"
+              />
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img
+                src="/static/images/segal-jewelry-NsH-CvU0deg-unsplash.jpg"
+                class="d-block w-100 carousel-img"
+                alt="Rings"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Products -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title display-5 mb-3">Our Featured Collection</h2>
+      <p class="lead text-muted">Handcrafted with precision and care</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="card product-card h-100 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div>
+                <h5 class="card-title font-playfair">Vintage Gold Ring</h5>
+                <div class="text-warning mb-2">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <small class="text-muted ms-2">(42 reviews)</small>
+                </div>
+              </div>
+              <span class="badge bg-gold">Bestseller</span>
+            </div>
+            <p class="card-text text-muted mb-3">
+              Elegant vintage-style gold ring with intricate detailing. Perfect
+              for engagements or special occasions.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="text-gold mb-0">$120.00</h6>
+                <small class="text-decoration-line-through text-muted"
+                  >$150.00</small
+                >
+              </div>
+              <div class="btn-group">
+                <button class="btn btn-outline-gold btn-sm">
+                  <i class="fas fa-eye me-1"></i>View
+                </button>
+                <button class="btn btn-gold btn-sm">
+                  <i class="fas fa-cart-plus me-1"></i>Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card product-card h-100 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div>
+                <h5 class="card-title font-playfair">
+                  Elegant Silver Necklace
+                </h5>
+                <div class="text-warning mb-2">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <small class="text-muted ms-2">(28 reviews)</small>
+                </div>
+              </div>
+            </div>
+            <p class="card-text text-muted mb-3">
+              Sophisticated silver necklace with delicate chain work. Versatile
+              piece that complements any outfit.
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="text-gold mb-0">$80.00</h6>
+              </div>
+              <div class="btn-group">
+                <button class="btn btn-outline-gold btn-sm">
+                  <i class="fas fa-eye me-1"></i>View
+                </button>
+                <button class="btn btn-gold btn-sm">
+                  <i class="fas fa-cart-plus me-1"></i>Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a href="/shop" class="btn btn-gold btn-lg">
+        <i class="fas fa-shopping-bag me-2"></i>View All Products
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title display-5 mb-3">Our Services</h2>
+      <p class="lead text-muted">
+        More than just jewelry - we're your partners in elegance
+      </p>
+    </div>
+
+    <div class="row g-4 d-flex justify-content-center">
+      <div class="col-md-6 col-lg-3">
+        <div class="text-center">
+          <div
+            class="bg-gold text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+            style="width: 60px; height: 60px"
+          >
+            <i class="fas fa-calculator fa-lg"></i>
+          </div>
+          <h5 class="font-playfair">Price Estimation</h5>
+          <p class="text-muted">
+            Get accurate valuations for your jewelry pieces with our expert
+            assessment tool.
+          </p>
+          <a href="/estimate" class="btn btn-outline-gold btn-sm"
+            >Get Estimate</a
+          >
+        </div>
+      </div>
+
+
+      <div class="col-md-6 col-lg-3">
+        <div class="text-center">
+          <div
+            class="bg-gold text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+            style="width: 60px; height: 60px"
+          >
+            <i class="fas fa-tools fa-lg"></i>
+          </div>
+          <h5 class="font-playfair">Custom Design</h5>
+          <p class="text-muted">
+            Create unique pieces tailored to your vision with our master
+            craftsmen.
+          </p>
+          <a href="/contact" class="btn btn-outline-gold btn-sm">Learn More</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="text-center">
+          <div
+            class="bg-gold text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+            style="width: 60px; height: 60px"
+          >
+            <i class="fas fa-shield-alt fa-lg"></i>
+          </div>
+          <h5 class="font-playfair">Lifetime Warranty</h5>
+          <p class="text-muted">
+            All our pieces come with comprehensive lifetime warranty and free
+            maintenance.
+          </p>
+          <a href="/about" class="btn btn-outline-gold btn-sm">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h2 class="section-title display-5 mb-4">Why Choose GoldGlanz?</h2>
+        <div class="row g-4">
+          <div class="col-12">
+            <div class="d-flex align-items-start">
+              <div
+                class="bg-gold text-white rounded-circle d-inline-flex align-items-center justify-content-center me-3"
+                style="width: 40px; height: 40px; flex-shrink: 0"
+              >
+                <i class="fas fa-leaf"></i>
+              </div>
+              <div>
+                <h6 class="font-playfair mb-2">Ethically Sourced</h6>
+                <p class="text-muted mb-0">
+                  All materials come from certified conflict-free sources with
+                  full traceability.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="d-flex align-items-start">
+              <div
+                class="bg-gold text-white rounded-circle d-inline-flex align-items-center justify-content-center me-3"
+                style="width: 40px; height: 40px; flex-shrink: 0"
+              >
+                <i class="fas fa-hammer"></i>
+              </div>
+              <div>
+                <h6 class="font-playfair mb-2">Master Craftsmanship</h6>
+                <p class="text-muted mb-0">
+                  Each piece is handcrafted by artisans with decades of
+                  experience.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="d-flex align-items-start">
+              <div
+                class="bg-gold text-white rounded-circle d-inline-flex align-items-center justify-content-center me-3"
+                style="width: 40px; height: 40px; flex-shrink: 0"
+              >
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <div>
+                <h6 class="font-playfair mb-2">Fair Pricing</h6>
+                <p class="text-muted mb-0">
+                  Exceptional quality at direct-from-artisan prices by cutting
+                  out middlemen.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="text-center">
+          <div class="bg-light rounded-3 p-5">
+            <i class="fas fa-award display-1 text-gold mb-3"></i>
+            <h4 class="font-playfair">15+ Years</h4>
+            <p class="text-muted mb-0">of Excellence in Jewelry Crafting</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-gold text-white">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="display-5 font-playfair mb-3">
+        Ready to Find Your Perfect Piece?
+      </h2>
+      <p class="lead mb-4">
+        Explore our collection or get a personalized consultation with our
+        jewelry experts.
+      </p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="/shop" class="btn btn-light btn-lg">
+          <i class="fas fa-shopping-bag me-2"></i>Shop Now
+        </a>
+        <a href="/contact" class="btn btn-outline-light btn-lg">
+          <i class="fas fa-comments me-2"></i>Get Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

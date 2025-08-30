@@ -1,0 +1,216 @@
+:root {
+    --primary-gold: #d4af37;
+    --secondary-gold: #f4e4a1;
+    --dark-gold: #b8941f;
+    --text-dark: #2c3e50;
+    --text-light: #6c757d;
+    --bg-light: #f8f9fa;
+}
+
+html,body {
+    height: 100%;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
+
+
+.carousel-img {
+  height: 360px; /* or your preferred height */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .carousel-img {
+    height: 250px;
+  }
+}
+
+
+.font-playfair {
+    font-family: "Playfair Display", serif;
+  }
+
+.text-gold {
+    color: var(--primary-gold);
+}
+  
+.bg-gold {
+    background-color: var(--primary-gold);
+}
+  
+.btn-gold {
+    background-color: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: white;
+}
+  
+.btn-gold:hover {
+    background-color: var(--dark-gold);
+    border-color: var(--dark-gold);
+    color: white;
+}
+  
+.btn-outline-gold {
+    border-color: var(--primary-gold);
+    color: var(--primary-gold);
+}
+  
+.btn-outline-gold:hover {
+    background-color: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: white;
+  }
+  
+.navbar-brand {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+
+.hero-section {
+    background: linear-gradient(
+      135deg,
+      var(--primary-gold),
+      var(--dark-gold)
+    );
+    color: white;
+    padding: 100px 0;
+}
+  
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+  
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.section-title {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+ 
+.footer {
+    background-color: var(--text-dark);
+    color: white;
+}
+  
+.step-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-gold);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0 auto 1rem;
+}
+  
+.value-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-gold);
+    margin-right: 1rem;
+  }
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 60px 0;
+    }
+    .hero-section h1 {
+      font-size: 2rem;
+    }
+ }
+
+
+ /* admin side page css */
+ 
+ /* dashboard page css */
+   body {
+      background-color: #f8f9fa;
+    }
+    .table-card {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .btn-gold {
+      background-color: #d4af37;
+      color: white;
+      border: none;
+    }
+    .btn-gold:hover {
+      background-color: #b8941f;
+    }
+    
+
+ /* add page css */ /* edit page css */
+     :root {
+      --gold: #d4af37;
+      --dark-gold: #b8941f;
+    }
+    body {
+         background: #f8f9fa;
+          font-family: 'Segoe UI', sans-serif; 
+        }
+
+    .btn-gold {
+         background: var(--gold); 
+         color: white; 
+         border: none; 
+        }
+    
+    .btn-gold:hover {
+         background: var(--dark-gold); 
+        }
+    .form-section {
+         background: #fff;
+          padding: 30px; 
+          border-radius: 8px; 
+          box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
+        }
+
+    .preview-image { 
+        max-width: 100%; 
+        max-height: 200px;
+         border-radius: 6px; 
+         margin-top: 10px;
+         }
+    .upload-box { 
+        border: 2px dashed var(--gold);
+         padding: 30px;
+          text-align: center; 
+         cursor: pointer; 
+         border-radius: 8px; 
+        }
+
+
+        .text-gold {
+  color: #d4af37; /* gold tone */
+}
+
+.btn-gold {
+  background-color: #d4af37;
+  color: #fff;
+  border: none;
+}
+
+.btn-gold:hover {
+  background-color: #c19e2b;
+  color: #fff;
+}

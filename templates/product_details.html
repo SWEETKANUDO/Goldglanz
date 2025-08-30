@@ -1,0 +1,72 @@
+{% extends '/includes/boiler.html' %} {% block title %}{{ product.p_name }} -
+GoldGlanz{% endblock %} {% block content %}
+<div class="container py-5">
+  <div class="row g-5 align-items-center">
+    <!-- Product Image -->
+    <div class="col-md-6 text-center">
+      <div class="border rounded shadow-sm p-3 bg-white">
+        <img
+          src="{{ url_for('static', filename='images/products/' + product.p_image) }}"
+          alt="{{ product.p_name }}"
+          class="img-fluid rounded"
+          style="max-height: 450px; object-fit: cover"
+        />
+      </div>
+    </div>
+
+    <!-- Product Info -->
+    <div class="col-md-6">
+      <h1 class="font-playfair fw-bold mb-3">Name: {{ product.p_name }} </h1>
+      <p class="text-muted fs-5 fw-bold">Material: {{product.p_material}}</p>
+      <p class="text-muted fs-5 fw-bold">category: {{product.p_category}}</p>
+      <p class="text-muted fs-5 fw-bold">weight: {{product.p_weight}}gm</p>
+      <!-- material -->
+
+      <!-- Price -->
+      <h3 class="text-gold fw-bold mb-3">
+       Price: ₹{{ product.p_price }}
+        <span class="fs-6 text-muted ms-2">Incl. all taxes</span>
+      </h3>
+
+      <!-- Description -->
+      <p class="text-muted fs-5 mb-4">Description : {{ product.p_description }}</p>
+
+      
+
+      <!-- Stock Status -->
+      <p class="text-success fw-semibold">
+        <i class="fas fa-check-circle me-2"></i>In Stock
+      </p>
+
+      <!-- Quantity & Add to Cart -->
+        {% if current_user.is_authenticated %}
+        <form method="POST" action="/add_to_cart/{{ product.p_id }}">
+          <div class="d-flex align-items-center mb-3">
+            <label for="quantity" class="form-label me-2 mb-0">Quantity:</label>
+            <input
+              type="number"
+              name="quantity"
+              value="1"
+              min="1"
+              class="form-control w-auto"
+            />
+          </div>
+          {% if current_user.is_admin %}
+            <p class="text-danger" >You are an admin you can't order.</p>
+          {% endif%}
+          {% if not current_user.is_admin %}
+          <button type="submit" class="btn btn-gold">
+            <i class="fas fa-cart-plus me-2"></i>Add to Cart
+          </button>
+        </form>
+        {% endif %}
+        {% else %}
+        <p class="text-danger">
+          Please <a href="/login">log in</a> to add items to your cart.
+        </p>
+        {% endif %}
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

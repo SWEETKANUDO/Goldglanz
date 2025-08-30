@@ -1,0 +1,35 @@
+{% extends '/includes/boiler.html' %} {% block title %}Orders{% endblock %} {%
+block content %}
+<div class="container my-5">
+  <h2 class="section-title mb-4">Your Orders</h2>
+
+  <div class="table-responsive">
+    <div class="table-card">
+      <table class="table table-bordered align-middle">
+        <thead class="table-light">
+          <tr class="text-center">
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order, product in orders %}
+          <tr class="text-center">
+            <td>{{ product.p_name }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.total_price }}</td>
+            <td>confirmed</td>
+          </tr>
+          {% else %}
+          <tr>
+            <td colspan="6" class="text-center text-muted">No orders found.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends '/includes/boiler.html' %} 
+ {% block title %}GoldGlanz{% endblock %}
+
+<!-- Include navigation -->
+{% block content %}
+
+<div class="shadow offset-3 w-50">
+  <form class="mt-5 p-3 needs-validation" novalidate method="post" action="/login">
+    <div class="col-6">
+    <h1>Login</h1>
+    <label for="validationTooltipUsername" class="form-label">email</label>
+    <div class="input-group has-validation">
+      <!-- <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span> -->
+      <input type="email" name="email" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+      <div class="invalid-tooltip">
+        Please enter a valid email
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <label for="validationTooltipUsername" class="form-label">password</label>
+    <div class="input-group has-validation">
+      <!-- <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span> -->
+      <input type="password" name = "password" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+      <div class="invalid-tooltip">
+        Please choose a unique and valid password.
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6 mt-2">
+    <button class="btn btn-primary" type="submit">Login</button>
+  </div>
+  <div class="">Don't have an account ? <a href="/signup" class="text-decoration-none">Sign up</a>
+    </div>
+</form>
+
+</div>
+<script src="./static/script.js"></script>
+{% endblock %}

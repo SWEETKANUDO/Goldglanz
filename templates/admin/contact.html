@@ -1,0 +1,38 @@
+{% extends '/includes/boiler.html' %}
+
+{% block title %}Contact Submissions - Admin{% endblock %}
+
+{% block content %}
+<div class="container my-5 wrapper">
+    <h2 class="mb-4">Contact Form Submissions</h2>
+
+    {% if contacts %}
+    <div class="table-responsive ">
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                    <th>Submitted At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.id }}</td>
+                    <td>{{ contact.username }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.message }}</td>
+                    <td>{{ contact.id }}</td> <!-- optional: use contact.created_at if you add it -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="text-muted">No contact messages found.</p>
+    {% endif %}
+</div>
+{% endblock %}

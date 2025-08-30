@@ -1,0 +1,231 @@
+{% extends '/includes/boiler.html' %} 
+{% block title %}Contact Us - GoldGlanz{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="text-center">
+            <h1 class="display-4 font-playfair mb-3">Contact Us</h1>
+            <p class="lead">We'd love to hear from you</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-5">
+                        <div class="text-center mb-4">
+                            <h2 class="section-title mb-3">Get in Touch</h2>
+                            <p class="text-muted">Have a question about our jewelry? We're here to help!</p>
+                        </div>
+                        
+                        <form class="needs-validation" novalidate method="post" action="/submit_contact ">
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label for="firstName" class="form-label">Username</label>
+                                    <input type="text" class="form-control" name="username"   id="firstName" required>
+                                    <div class="invalid-feedback">
+                                        Please provide your username.
+                                    </div>
+                                </div>
+                               
+                                           
+                                <div class="col-12">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" name="email" id="email" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid email address.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label for="phone" class="form-label">Phone Number (Optional)</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <select class="form-select" id="subject" required>
+                                        <option value="">Choose a subject...</option>
+                                        <option value="general">General Inquiry</option>
+                                        <option value="custom">Custom Jewelry</option>
+                                        <option value="exchange">Exchange Program</option>
+                                        <option value="repair">Repair Services</option>
+                                        <option value="support">Customer Support</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a subject.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" name="message" id="message" rows="5" required placeholder="How can we help you?"></textarea>
+                                    <div class="invalid-feedback">
+                                        Please provide a message.
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="newsletter">
+                                        <label class="form-check-label" for="newsletter">
+                                            I would like to receive updates about new collections and special offers
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-gold btn-lg px-5" type="submit">
+                                        <i class="fas fa-paper-plane me-2"></i>Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Information -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title display-5 mb-3">Visit Our Store</h2>
+            <p class="lead text-muted">Experience our jewelry collection in person</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="bg-gold text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-map-marker-alt fa-lg"></i>
+                        </div>
+                        <h5 class="font-playfair mb-3">Visit Us</h5>
+                        <p class="text-muted">123 Jewelry Street<br>City, State 12345<br>United States</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="bg-gold text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-phone fa-lg"></i>
+                        </div>
+                        <h5 class="font-playfair mb-3">Call Us</h5>
+                        <p class="text-muted">+1 (555) 123-4567<br><br>Mon-Fri: 9AM-6PM<br>Sat: 10AM-4PM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="bg-gold text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fas fa-envelope fa-lg"></i>
+                        </div>
+                        <h5 class="font-playfair mb-3">Email Us</h5>
+                        <p class="text-muted">support@goldglanz.com<br><br>We typically respond<br>within 24 hours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title display-5 mb-3">Frequently Asked Questions</h2>
+            <p class="lead text-muted">Quick answers to common questions</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq1">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                                Do you offer custom jewelry design?
+                            </button>
+                        </h2>
+                        <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes! We specialize in custom jewelry design. Our expert craftsmen can work with you to create a unique piece that perfectly matches your vision and style.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                                What is your return policy?
+                            </button>
+                        </h2>
+                        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                We offer a 30-day return policy for all jewelry purchases. Items must be in original condition with all packaging and certificates included.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                                Do you provide jewelry repair services?
+                            </button>
+                        </h2>
+                        <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Absolutely! We offer comprehensive repair services for all types of jewelry, including resizing, stone replacement, and restoration of vintage pieces.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                                How long does custom jewelry take to complete?
+                            </button>
+                        </h2>
+                        <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Custom jewelry typically takes 2-4 weeks to complete, depending on the complexity of the design. We'll provide you with a detailed timeline during consultation.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Form validation
+(function() {
+    'use strict';
+    window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+</script>
+{% endblock %}

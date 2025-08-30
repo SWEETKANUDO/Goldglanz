@@ -1,0 +1,212 @@
+{% extends '/includes/boiler.html' %} 
+{% block title %}Shop - GoldGlanz Premium Jewelry{% endblock %}
+
+{% block content %}
+<!-- Shop Header -->
+<section class="hero-section text-center py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold font-playfair mb-4">
+                    <i class="fas fa-gem me-3"></i>Shop Collection
+                </h1>
+                <p class="lead mb-4 opacity-90">
+                    Discover our exquisite range of gold and silver jewelry, crafted with precision and care.
+                </p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center bg-transparent">
+                        <li class="breadcrumb-item"><a href="/" class="text-white">Home</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page"><a href="">Shop</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Shop Content -->
+<section class="py-5">
+    <div class="container">
+        <form method="GET" action="{{ url_for('shop') }}">
+        <div class="row">
+            <!-- Sidebar Filters -->
+            <div class="col-lg-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-gold text-white">
+                        <h5 class="mb-0"><i class="fas fa-filter me-2"></i>Filters</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Category Filter -->
+                        <div class="mb-4">
+                            <h6 class="font-playfair mb-3">Category</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" name="category[]" type="checkbox" value="rings" id="rings">
+                                <label class="form-check-label" for="rings">Rings</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" name="category[]" type="checkbox" value="necklaces" id="necklaces">
+                                <label class="form-check-label" for="necklaces">Necklaces</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" name="category[]" type="checkbox" value="earrings" id="earrings">
+                                <label class="form-check-label" for="earrings">Earrings</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" name="category[]" type="checkbox" value="bracelets" id="bracelets">
+                                <label class="form-check-label" for="bracelets">Bracelets</label>
+                            </div>
+                            <!-- <div class="form-check">
+                                <input class="form-check-input" name="category[]" type="checkbox" value="pendants" id="pendants">
+                                <label class="form-check-label" for="pendants">Pendants</label>
+                            </div> -->
+                        </div>
+
+                        <!-- Material Filter -->
+                        <div class="mb-4">
+                            <h6 class="font-playfair mb-3">Material</h6>
+                            <div class="form-check">
+                                <input class="form-check-input" name="material[]" type="checkbox" value="gold" id="gold">
+                                <label class="form-check-label" for="gold">Gold</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" name="material[]" type="checkbox" value="silver" id="silver">
+                                <label class="form-check-label" for="silver">Silver</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" name="material[]" type="checkbox" value="platinum" id="platinum">
+                                <label class="form-check-label" for="platinum">Platinum</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" name="material[]" type="checkbox" value="diamond" id="diamond">
+                                <label class="form-check-label" for="diamond">Diamond</label>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-gold w-100 mb-2" >Apply Filters</button>
+                        <button class="btn btn-outline-gold w-100">Clear All</button>
+                    </div>
+                  </div>
+                </div>
+               <!-- </div> -->
+            </form>
+            <!-- Products Grid -->
+            <div class="col-lg-9">
+                <!-- Sort and View Options -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="d-flex align-items-center">
+                        <span class="text-muted me-3">Showing 1-12 of 48 products</span>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="row g-4">
+                    {% for product in products %}
+                    <!-- Product 1 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div data-aos="flip-right">
+                        <div class="product-card card border-0 shadow-sm h-100">
+                            <div class="position-relative">
+                             <a href="/product/{{ product.p_id }}">   
+                              <img src="{{ url_for('static', filename='images/products/' + product.p_image) }}" alt="{{ product.p_name }}" class="card-img-top" style="height: 250px; object-fit: cover;">
+                             </a> 
+                              <div class="position-absolute top-0 start-0 m-3">
+                                    <span class="badge bg-danger">Bestseller</span>
+                                </div>
+                                <div class="position-absolute top-0 end-0 m-3">
+                                    <button class="btn btn-light btn-sm rounded-pill" title="Add to Wishlist">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title font-playfair">{{product.p_name}}</h5>    
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="h5 text-gold mb-0 me-2">₹{{product.p_price}}</span>
+                                    <span class="text-muted">Weight: {{product.p_weight}}gm</span>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    {% if current_user.is_admin and current_user.is_authenticated %}
+                                        <p class="text-danger" >You are an admin you can't order.</p>
+                                    {% endif %}
+                                    {% if not current_user.is_admin %}
+                                    <button class="btn btn-gold">
+                                        <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                                    </button>
+                                    {% endif %}
+                                    <a href="{{ url_for('product_detail',p_id=product.p_id) }}" class="btn btn-outline-gold">
+                                        <i class="fas fa-eye me-2"></i>Quick View
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                   
+                <!-- Pagination -->
+                <nav aria-label="Product pagination" class="mt-5">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Featured Categories</h2>
+            <div class="row g-4">
+                <!-- Category 1 -->
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm text-center h-100">
+                        <img src="/static/images/products/ring.jpg" 
+                             alt="Rings" class="card-img-top" style="height: 220px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="font-playfair">Rings</h5>
+                            <p class="text-muted">Classic and modern styles to suit every taste.</p>
+                            <!-- <a href="/shop" class="btn btn-outline-gold btn-sm">Shop Rings</a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Necklaces" class="card-img-top" style="height: 220px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="font-playfair">Necklaces</h5>
+                            <p class="text-muted">Elegant pieces for daily wear or special events.</p>
+                            <!-- <a href="#" class="btn btn-outline-gold btn-sm">Shop Necklaces</a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1603570423457-1a6440c9c64b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                             alt="Earrings" class="card-img-top" style="height: 220px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="font-playfair">Earrings</h5>
+                            <p class="text-muted">From minimal studs to bold statement styles.</p>
+                            <!-- <a href="#" class="btn btn-outline-gold btn-sm">Shop Earrings</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

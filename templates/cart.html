@@ -1,0 +1,66 @@
+{% extends '/includes/boiler.html' %} {% block title %}Cart{% endblock %} {%
+block content %}
+<body>
+  <!-- Cart Section -->
+  <div class="container my-5">
+    <h2 class="section-title mb-4">Your Cart</h2>
+
+    <div class="table-responsive">
+      <table class="table align-middle table-bordered table-card">
+        <thead class="table-light">
+          <tr class="text-center">
+            <th>Product Name</th>
+            <th>Image</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% set ns = namespace(grand_total=0) %} {% for order, product in carts
+          %} {% set total_price = (product.p_price | float) * (order.quantity |
+          float) %} {% set ns.grand_total = ns.grand_total + total_price %}
+          <tr class="text-center">
+            <td>{{ product.p_name }}</td>
+            <td>
+              <img
+                src="{{ url_for('static', filename='images/products/' + product.p_image) }}"
+                class="img-fluid rounded w-50"
+              />
+            </td>
+            <td>{{ order.quantity }}</td>
+            <td>₹{{ product.p_price }}</td>
+            <td>₹{{ total_price }}</td>
+            <td>
+            <a href="{{ url_for('remove_cart_item', cart_id=order.cart_id) }}"
+            class="btn btn-sm btn-outline-danger">
+            Remove
+            </a>
+
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Total Price and Checkout -->
+    {% if ns.grand_total != 0 %}
+    <div class="row justify-content-end mt-4">
+      <div class="col-md-4 text-end">
+        <h4>Total: ₹{{ ns.grand_total }}</h4>
+        <a
+          href="{{ url_for('place_order') }}"
+          class="btn btn-gold btn-lg mt-2"
+          >Proceed to Checkout</a
+        >
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+{% endblock %}

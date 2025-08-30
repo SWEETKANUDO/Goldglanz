@@ -1,0 +1,46 @@
+{% extends '/includes/boiler.html' %}
+{% block title %}Orders - GoldGlanz{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="mb-0">Customer Orders</h3>
+    <a href="/admin" class="btn btn-outline-secondary">← Back to Dashboard</a>
+  </div>
+
+  {% if orders %}
+  <div class="table-responsive table-card shadow-sm">
+    <table class="table table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Order ID</th>
+          <th>Customer</th>
+          <th>Product</th>
+          <th>Qty</th>
+          <th>Total (₹)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+        <tr>
+          <td>#{{ order.id }}</td>
+          <td>{{ order.user_id }}</td>
+          <td>{{ order.product_id }}</td>
+          <td>{{ order.quantity }}</td>
+          <td>₹{{ order.total_price }}</td>
+          <td>
+            <span class="badge {% if order.status == 'Completed' %}bg-success{% else %}bg-warning{% endif %}">
+              {{ order.status }}
+            </span>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+    <div class="alert alert-info text-center">No orders found.</div>
+  {% endif %}
+</div>
+{% endblock %}
