@@ -30,9 +30,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
     "connect_args": {
-        "ssl": True  # simple True works with Aiven
+        "ssl": {}  # empty dict enables SSL without certificates
     }
 }
+
 
 
 
