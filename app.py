@@ -10,9 +10,8 @@ from flask_login import UserMixin
 
 app = Flask(__name__)
 app.secret_key = '9664852364'
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:J%40ss1909@localhost/goldglanz_db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+import os
+password = os.getenv('AIVEN_PASSWORD')
 
 db.init_app(app)
 migrate = Migrate(app, db)

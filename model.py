@@ -6,8 +6,8 @@ from flask_migrate import Migrate
 app = Flask(__name__)
 
 # ✅ Use PyMySQL for better compatibility
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:J%40ss1909@localhost/goldglanz_db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+import os
+password = os.getenv('AIVEN_PASSWORD')
 
 db = SQLAlchemy(app)
 
