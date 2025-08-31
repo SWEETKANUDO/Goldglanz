@@ -8,13 +8,37 @@ from flask_sqlalchemy import SQLAlchemy
 from model import Cart, Contact, Order, User, Product, db
 from flask_migrate import Migrate
 from flask_login import UserMixin
+import os
 
 app = Flask(__name__)
 app.secret_key = '9664852364'
-import os
-load_dotenv()
 
-password = os.getenv('AIVEN_PASSWORD')
+
+
+load_dotenv()  # Load .env file
+
+app = Flask(__name__)
+
+# Get database URL from .env
+database_uri = os.getenv("DATABASE_URL")
+print("DEBUG DATABASE_URL:", database_uri)  # just to confirm
+
+if not database_uri:
+    raise ValueError("DATABASE_URL not found in environment variables")
+
+app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+    "connect_args": {
+        "ssl": {
+            "ssl_mode": "REQUIRED",
+            "ca": "c:/python/goldglanz_project/ca.pem"
+   
+        }
+    }
+}
+
 
 db.init_app(app)
 migrate = Migrate(app, db)

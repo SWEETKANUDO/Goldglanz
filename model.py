@@ -7,12 +7,8 @@ from flask_migrate import Migrate
 app = Flask(__name__)
 
 # ✅ Use PyMySQL for better compatibility
-import os
-load_dotenv()
 
-password = os.getenv('AIVEN_PASSWORD')
-
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
 migrate = Migrate(app, db)
 
