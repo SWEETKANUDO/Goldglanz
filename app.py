@@ -29,15 +29,6 @@ if not database_uri:
 app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
-    "connect_args": {
-        "ssl": {
-            "ssl_mode": "REQUIRED",
-            "ca": "c:/python/goldglanz_project/ca.pem"
-   
-        }
-    }
-}
 
 
 db.init_app(app)
