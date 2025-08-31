@@ -1,5 +1,6 @@
 from functools import wraps
 from operator import or_
+from dotenv import load_dotenv
 from flask import Flask, abort, render_template, request, flash, redirect, url_for, flash
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from flask_bcrypt import Bcrypt
@@ -11,6 +12,8 @@ from flask_login import UserMixin
 app = Flask(__name__)
 app.secret_key = '9664852364'
 import os
+load_dotenv()
+
 password = os.getenv('AIVEN_PASSWORD')
 
 db.init_app(app)

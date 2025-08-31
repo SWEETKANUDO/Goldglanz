@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from flask import Flask 
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
@@ -7,6 +8,8 @@ app = Flask(__name__)
 
 # ✅ Use PyMySQL for better compatibility
 import os
+load_dotenv()
+
 password = os.getenv('AIVEN_PASSWORD')
 
 db = SQLAlchemy(app)
