@@ -200,23 +200,37 @@ def place_order():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
+        try:
+            email = request.form.get('email')
+            password = request.form.get('password')
 
-        user = User.query.filter_by(email=email).first()
+            app.logger.debug(f"Login attempt with email: {email}")
 
-        if user and bcrypt.check_password_hash(user.password, password):
-            login_user(user)
-            flash("Login Successful!", "success")
-            if user.is_admin:
-                    return redirect('/admin')
-            
-            return redirect('/')
-        
-        else:
-            flash("Invalid email or password", "danger")
+            if not email or not password:
+                flash("Please enter both email and password", "danger")
+                return render_template('login.html')
+
+            user = User.query.filter_by(email=email).first()
+
+            if user:
+                app.logger.debug(f"User found: {user.email}")
+                if bcrypt.check_password_hash(user.password, password):
+                    login_user(user)
+                    flash("Login Successful!", "success")
+                    return redirect('/admin' if user.is_admin else '/')
+                else:
+                    app.logger.debug("Password mismatch")
+                    flash("Invalid email or password", "danger")
+            else:
+                app.logger.debug("No user found for that email")
+                flash("Invalid email or password", "danger")
+
+        except Exception as e:
+            app.logger.error(f"Login error: {e}", exc_info=True)
+            return "Server error (check logs)", 500
 
     return render_template('login.html')
+
 
 @login_manager.user_loader
 def load_user(user_id):
