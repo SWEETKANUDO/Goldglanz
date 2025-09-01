@@ -9,15 +9,16 @@ from model import Cart, Contact, Order, User, Product, db
 from flask_migrate import Migrate
 from flask_login import UserMixin
 import os
+load_dotenv()  # Load .env file
+
 
 app = Flask(__name__)
 app.secret_key = '9664852364'
 
+app.secret_key = os.getenv("SECRET_KEY", "dev_secret_key")
 
 
-load_dotenv()  # Load .env file
 
-app = Flask(__name__)
 
 # Get database URL from .env
 database_uri = os.getenv("DATABASE_URL")
