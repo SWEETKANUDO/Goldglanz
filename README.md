@@ -16,12 +16,10 @@ Perfect for **learning Flask + MySQL integration** and building real-world e-com
 
 ---
 
-## 🖼️ Screenshots (Demo)
 <p align="center">
-  <img src="https://via.placeholder.com/600x350?text=Homepage+Preview" alt="Homepage Preview" />
-</p>
-<p align="center">
-  <img src="https://via.placeholder.com/600x350?text=Admin+Dashboard+Preview" alt="Admin Dashboard" />
+## 🧭 Quick demo / preview
+> https://goldglanz.vercel.app/
+
 </p>
 
 ---
